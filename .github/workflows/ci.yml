@@ -1,0 +1,37 @@
+name: CI Build
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+ 
+    runs-on: windows-latest
+ 
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+ 
+    - name: Install .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+ 
+    - name: Restore
+      run: dotnet restore
+      working-directory: src/LijsDev.MLUtils
+ 
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
+      working-directory: src/LijsDev.MLUtils
+ 
+    - name: Test
+      run: dotnet test --no-restore
+      working-directory: src/LijsDev.MLUtils
