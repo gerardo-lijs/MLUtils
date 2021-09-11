@@ -26,12 +26,12 @@ jobs:
  
     - name: Restore
       run: dotnet restore
-      working-directory: src/LijsDev.MLUtils
+      working-directory: src/LijsDev.Utils.ML
  
     - name: Build
       run: dotnet build --configuration Release --no-restore
-      working-directory: src/LijsDev.MLUtils
+      working-directory: src/LijsDev.Utils.ML
  
     - name: Test
       run: dotnet test --no-restore
-      working-directory: src/LijsDev.MLUtils
+      working-directory: src/LijsDev.Utils.ML

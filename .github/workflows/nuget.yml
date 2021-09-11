@@ -23,19 +23,19 @@ jobs:
  
     - name: Restore
       run: dotnet restore
-      working-directory: src/LijsDev.MLUtils
+      working-directory: src/LijsDev.Utils.ML
  
     - name: Build
       run: dotnet build --configuration Release --no-restore
-      working-directory: src/LijsDev.MLUtils
+      working-directory: src/LijsDev.Utils.ML
  
     - name: Test
       run: dotnet test --no-restore
-      working-directory: src/LijsDev.MLUtils
+      working-directory: src/LijsDev.Utils.ML
       
     - name: Pack
       run: dotnet pack --configuration Release --no-build --include-source --include-symbols -o ./artifacts
-      working-directory: src/LijsDev.MLUtils
+      working-directory: src/LijsDev.Utils.ML
 
     - name: Install NuGet
       uses: NuGet/setup-nuget@v1
@@ -44,4 +44,4 @@ jobs:
 
     - name: Publish NuGet Package
       run: dotnet nuget push *.nupkg --api-key ${{secrets.NUGET_API_KEY}} --source https://api.nuget.org/v3/index.json --skip-duplicate
-      working-directory: src/LijsDev.MLUtils/artifacts
+      working-directory: src/LijsDev.Utils.ML/artifacts
