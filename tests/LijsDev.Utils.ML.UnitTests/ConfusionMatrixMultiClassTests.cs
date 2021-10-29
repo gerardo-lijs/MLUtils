@@ -89,6 +89,7 @@ namespace LijsDev.Utils.ML.UnitTests
             Math.Round(confusionMatrix.MicroF1, 2).Should().Be(0.28);
             Math.Round(confusionMatrix.MacroF1, 2).Should().Be(0.24);
             Math.Round(confusionMatrix.WeightedF1, 2).Should().Be(0.23);
+            Math.Round(confusionMatrix.WeightedAccuracy, 2).Should().Be(0.52);
         }
 
         [TestMethod]
@@ -138,6 +139,7 @@ namespace LijsDev.Utils.ML.UnitTests
             Math.Round(confusionMatrix.MicroF1, 2).Should().Be(0.82);
             Math.Round(confusionMatrix.MacroF1, 2).Should().Be(0.78);
             Math.Round(confusionMatrix.WeightedF1, 2).Should().Be(0.83);
+            Math.Round(confusionMatrix.WeightedAccuracy, 2).Should().Be(0.89);
         }
     }
 }

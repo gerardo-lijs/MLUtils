@@ -127,7 +127,7 @@ namespace LijsDev.Utils.ML
         public double F1Score(string classLabel) => Precision(classLabel) + Recall(classLabel) == 0 ? 0 : 2 * ((Precision(classLabel) * Recall(classLabel)) / (Precision(classLabel) + Recall(classLabel)));
 
         /// <summary>
-        /// MicroF1 is calculated by considering the total TP, total FP and total FN of the model. It does not consider each class individually, It calculates the metrics globally.
+        /// Micro F1 is calculated by considering the total TP, total FP and total FN of the model. It does not consider each class individually, It calculates the metrics globally.
         /// </summary>
         public double MicroF1
         {
@@ -159,7 +159,7 @@ namespace LijsDev.Utils.ML
         }
 
         /// <summary>
-        /// WeightedF1 is weighted-averaged F1-score.
+        /// Weighted F1 is weighted-averaged F1-score.
         /// </summary>
         public double WeightedF1
         {
@@ -179,7 +179,27 @@ namespace LijsDev.Utils.ML
         }
 
         /// <summary>
-        /// MacroF1 calculates metrics for each class individually and then takes unweighted mean of the measures.
+        /// Weighted accuracy is weighted-averaged accuracy.
+        /// </summary>
+        public double WeightedAccuracy
+        {
+            get
+            {
+                var classF1Score = new List<double>();
+                var numberOfCases = new List<double>();
+                foreach (var label in Labels)
+                {
+                    classF1Score.Add(Accuracy(label));
+                    numberOfCases.Add(TruePositives(label) + FalseNegatives(label));
+                }
+
+                var sumWeightedF1Score = classF1Score.Zip(numberOfCases, (classF1Score, numberOfCases) => classF1Score * numberOfCases).Sum();
+                return numberOfCases.Sum() == 0 ? 0 : sumWeightedF1Score / numberOfCases.Sum();
+            }
+        }
+
+        /// <summary>
+        /// Macro F1 calculates metrics for each class individually and then takes unweighted mean of the measures.
         /// </summary>
         public double MacroF1
         {
