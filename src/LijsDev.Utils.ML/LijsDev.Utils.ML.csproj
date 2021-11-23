@@ -1,17 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <LangVersion>preview</LangVersion>
-    <Nullable>enable</Nullable>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <Authors>Gerardo Lijs</Authors>
-    <Company>LijsDev</Company>
-    <Copyright>Copyright © LijsDev 2021</Copyright>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<LangVersion>preview</LangVersion>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<Authors>Gerardo Lijs</Authors>
+		<Company>LijsDev</Company>
+		<Copyright>Copyright © LijsDev 2021</Copyright>
+	</PropertyGroup>
 
-  <PropertyGroup>
-    <Description>Utilities for Machine Learning.</Description>
-  </PropertyGroup>
+	<PropertyGroup>
+		<Description>Utilities for Machine Learning.</Description>
+	</PropertyGroup>
 
 </Project>
