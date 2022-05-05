@@ -41,4 +41,13 @@ public class RegionEvaluations<T> : IReadOnlyList<RegionEvaluation<T>>
     /// Add an evaluation were ground-truth region was not detected.
     /// </summary>
     public void Add_FalseNegative(T groundTruth) => _evaluations.Add(new RegionEvaluation<T>(groundTruth, default, ConfusionMatrixClasiffication.FalseNegative));
+
+    /// <summary>
+    /// Returns true if all the regions are true negatives.
+    /// </summary>
+    public bool IsTrueNegative() => _evaluations.All(x => x.ConfusionMatrixClasiffication is ConfusionMatrixClasiffication.TrueNegative);
+    /// <summary>
+    /// Returns true if all the regions are true positives.
+    /// </summary>
+    public bool IsTruePositive() => _evaluations.All(x => x.ConfusionMatrixClasiffication is ConfusionMatrixClasiffication.TruePositive);
 }
