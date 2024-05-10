@@ -3,35 +3,27 @@
 /// <summary>
 /// Confusion matrix is a table that is often used to describe the performance of a classification model (or "classifier") on a set of test data for which the true values are known
 /// </summary>
-public class ConfusionMatrix
+///<inheritdoc/>
+public class ConfusionMatrix(int truePositives, int trueNegatives, int falsePositives, int falseNegatives)
 {
     // NB: https://www.dataschool.io/simple-guide-to-confusion-matrix-terminology/
 
     /// <summary>
     /// Predicted yes cases.
     /// </summary>
-    public int TruePositives { get; }
+    public int TruePositives { get; } = truePositives;
     /// <summary>
     /// Predicted no cases.
     /// </summary>
-    public int TrueNegatives { get; }
+    public int TrueNegatives { get; } = trueNegatives;
     /// <summary>
     /// Actual no cases.
     /// </summary>
-    public int FalsePositives { get; }
+    public int FalsePositives { get; } = falsePositives;
     /// <summary>
     /// Actual yes cases.
     /// </summary>
-    public int FalseNegatives { get; }
-
-    ///<inheritdoc/>
-    public ConfusionMatrix(int truePositives, int trueNegatives, int falsePositives, int falseNegatives)
-    {
-        TruePositives = truePositives;
-        TrueNegatives = trueNegatives;
-        FalsePositives = falsePositives;
-        FalseNegatives = falseNegatives;
-    }
+    public int FalseNegatives { get; } = falseNegatives;
 
     /// <summary>
     /// Total cases.

@@ -1,12 +1,11 @@
 ﻿namespace LijsDev.Utils.ML.UnitTests;
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 using FluentAssertions;
 
-[TestClass]
 public class EvaluationMetricsTests
 {
-    [TestMethod]
+    [Fact]
     public void IntersectionOverUnion_Case1_ShouldCalculateCorrectly()
     {
         var box1 = new BoundingBox(10, 10, 10, 10);
@@ -17,7 +16,7 @@ public class EvaluationMetricsTests
         iou.Should().Be(1);
     }
 
-    [TestMethod]
+    [Fact]
     public void IntersectionOverUnion_Case2_ShouldCalculateCorrectly()
     {
         var box1 = new BoundingBox(10, 10, 10, 10);
@@ -27,7 +26,7 @@ public class EvaluationMetricsTests
         iou.Should().Be(0.1429);
     }
 
-    [TestMethod]
+    [Fact]
     public void IntersectionOverUnion_Case3_ShouldCalculateCorrectly()
     {
         var box1 = new BoundingBox(10, 10, 10, 10);
@@ -37,7 +36,7 @@ public class EvaluationMetricsTests
         iou.Should().Be(0.3333);
     }
 
-    [TestMethod]
+    [Fact]
     public void IntersectionOverUnion_Case4_ShouldCalculateCorrectly()
     {
         var box1 = new BoundingBox(10, 10, 10, 10);
@@ -47,7 +46,7 @@ public class EvaluationMetricsTests
         iou.Should().Be(0.8182);
     }
 
-    [TestMethod]
+    [Fact]
     public void IntersectionOverUnion_Case5_ShouldCalculateCorrectly()
     {
         var box1 = new BoundingBox(130, 32, 320, 420);
@@ -57,7 +56,7 @@ public class EvaluationMetricsTests
         iou.Should().Be(0.6328);
     }
 
-    [TestMethod]
+    [Fact]
     public void IntersectionOverUnion_Case6_ShouldCalculateCorrectly()
     {
         var box1 = new BoundingBox(10, 10, 10, 10);

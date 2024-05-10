@@ -1,12 +1,11 @@
 ﻿namespace LijsDev.Utils.ML.UnitTests;
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 using FluentAssertions;
 
-[TestClass]
 public class ConfusionMatrixMultiClassTests
 {
-    [TestMethod]
+    [Fact]
     public void ConfusionMatrixMultiClass_ShouldCalculateCorrectly()
     {
         // NB: Tests based in values and results found in https://towardsdatascience.com/confusion-matrix-for-your-multi-class-machine-learning-model-ff9aa3bf7826
@@ -89,7 +88,7 @@ public class ConfusionMatrixMultiClassTests
         Math.Round(confusionMatrix.WeightedAccuracy, 2).Should().Be(0.52);
     }
 
-    [TestMethod]
+    [Fact]
     public void ConfusionMatrixMultiClass_sklearn_ShouldCalculateCorrectly()
     {
         // NB: Tests based in values and results found in https://towardsdatascience.com/confusion-matrix-for-your-multi-class-machine-learning-model-ff9aa3bf7826

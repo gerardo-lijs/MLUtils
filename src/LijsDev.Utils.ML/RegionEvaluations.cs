@@ -8,7 +8,7 @@ using System.Collections;
 /// <typeparam name="T">Type of region object</typeparam>
 public class RegionEvaluations<T> : IReadOnlyList<RegionEvaluation<T>>
 {
-    private readonly List<RegionEvaluation<T>> _evaluations = new();
+    private readonly List<RegionEvaluation<T>> _evaluations = [];
 
     /// <inheritdoc/>
     public RegionEvaluation<T> this[int index] => _evaluations[index];

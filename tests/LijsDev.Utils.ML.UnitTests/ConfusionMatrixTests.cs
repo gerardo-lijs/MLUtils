@@ -1,12 +1,11 @@
 ﻿namespace LijsDev.Utils.ML.UnitTests;
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 using FluentAssertions;
 
-[TestClass]
 public class ConfusionMatrixTests
 {
-    [TestMethod]
+    [Fact]
     public void ConfusionMatrix_ShouldCalculateCorrectly()
     {
         // NB: Tests based in values and results found in https://www.dataschool.io/simple-guide-to-confusion-matrix-terminology/
